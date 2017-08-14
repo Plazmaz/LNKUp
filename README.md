@@ -3,6 +3,11 @@ LNK Data exfiltration payload generator
 ---
 This tool will allow you to generate LNK payloads. Upon rendering or being run, they will exfiltrate data.
 
+## Installation
+Install requirements using   
+`pip install -r requirements.txt`
+
+
 ## Usage
 
 #### Payload types:
