@@ -1,7 +1,17 @@
 # LNKUp
 LNK Data exfiltration payload generator
 ---
-This tool will allow you to generate LNK payloads. Upon rendering or being run, they will exfiltrate data.
+This tool will allow you to generate LNK payloads. Upon rendering or being run, they will exfiltrate data.   
+
+## Info
+**I am not responsible for any actions you take with this tool!**   
+You can contact me with any questions by opening an issue, or via my Twitter, [@Plazmaz](https://www.twitter.com/Plazmaz).
+
+## Known gotchas
+* This tool will not work on OSX or Linux machines. It is specifically designed to target windows.
+* There may be issues with icon caching in some situations. If your payload doesn't execute after the first time, try regenerating it.
+* You will need to run a responder or [metasploit module](https://www.rapid7.com/db/modules/auxiliary/server/capture/smb) server to capture NTLM hashes.
+* To capture environment variables, you'll need to run a webserver like apache, nginx, or even just [this](https://gist.github.com/Plazmaz/cafd0bd3a3a4471446cc8fe6e4f0c036)
 
 ## Installation
 Install requirements using   
