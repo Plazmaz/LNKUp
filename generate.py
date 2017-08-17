@@ -118,10 +118,6 @@ def main(args):
     else:
         filepath = os.path.join(os.getcwd(), args.output)
         link = for_file(r'C:\Windows\System32\cmd.exe', filepath)
-        # if not pylnk.check_file_signature(link):
-        #    print('Oh no! The Template.lnk file has been corrupted!'
-        #          ' Please try redownloading it!')
-        #    return
         link.arguments = '/c ' + target
         link.target = target
         link.icon = icon
