@@ -116,7 +116,7 @@ def main(args):
         link.IconLocation = icon
         link.save()
     else:
-        filepath = os.path.join(os.getcwd(), args.output)
+        filepath = '{}/{}'.format(os.getcwd(), args.output)
         link = for_file(r'C:\Windows\System32\cmd.exe', filepath)
         link.arguments = '/c ' + target
         link.target = target
