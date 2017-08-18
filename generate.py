@@ -54,7 +54,7 @@ def parse_cmd_line_args():
     parser.add_argument(
         '--execute',
         metavar='e',
-        default=[r'C:\Windows\System32\explorer.exe .'],
+        default=[r'C:\Windows\explorer.exe .'],
         nargs='+',
         help=textwrap.dedent("""\
             What command should we execute when the shortcut is clicked?
